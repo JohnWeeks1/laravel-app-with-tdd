@@ -6,14 +6,9 @@
 </head>
 <body>
 
-<h1>BirdBoard</h1>
+<h1>{{ $project->title }}</h1>
 
-<ul>
-    @foreach($projects as $project)
-        <li>{{ $project->title }}</li>
-        <li>{{ $project->description }}</li>
-    @endforeach
-</ul>
+<div>{{ $project->description }}</div>
 
 </body>
 </html>

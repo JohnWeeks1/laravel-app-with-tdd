@@ -19,6 +19,12 @@ class ProjectsController extends Controller
         return view('projects.index', compact('projects'));
     }
 
+    public function show(Project $project)
+    {
+        dd($id);
+        return view('projects.show', compact('project'));
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -28,6 +34,11 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required'
+        ]);
+
         Project::create([
             'title' => $request->get('title'),
             'description' => $request->get('description')
